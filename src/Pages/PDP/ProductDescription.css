@@ -1,0 +1,159 @@
+.p-d {
+  padding: 3.5rem 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.p-d .p-d-left {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.p-d .p-d-left .prod-img-list {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.p-d .p-d-left .prod-img-list img {
+  width: 100px;
+  height: 100px;
+  box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  margin-bottom: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-d .p-d-left .prod-img-list img:hover {
+  cursor: pointer;
+}
+
+.p-d .p-d-left .prod-img-main {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+}
+
+.p-d .p-d-left .prod-img-main img {
+  height: 500px;
+  box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.p-d .p-d-right {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  margin-left: 3rem;
+}
+
+.p-d .p-d-right .p-d-name {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.p-d .p-d-right .p-d-brand {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.p-d .p-d-right .size {
+  padding-top: 2rem;
+}
+
+.p-d .p-d-right .size-btn {
+  cursor: pointer;
+  padding: 8px 10px;
+  background-color: white;
+  color: #444343;
+  width: 50px;
+  margin-right: 3px;
+  border: 1px solid #cccbcb;
+  outline: none;
+}
+
+.p-d .p-d-right .active {
+  color: white;
+  background-color: #424242;
+}
+
+.p-d .p-d-right .price {
+  padding: 2rem 0 1rem;
+}
+
+.p-d .p-d-right .add-to-cart {
+  color: white;
+  margin: 1rem 0 1.5rem;
+  background-color: #317041;
+  padding: 0.7rem 5rem;
+  width: 80%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .p-d {
+    display: block;
+    padding: 3rem 0;
+  }
+  .p-d .p-d-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 100vw;
+  }
+  .p-d .p-d-left .prod-img-list {
+    display: inline;
+    padding: 0 7.5px;
+  }
+  .p-d .p-d-left .prod-img-list img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding: 0 10px;
+  }
+  .p-d .p-d-left .prod-img-main {
+    display: block;
+    width: 90%;
+  }
+  .p-d .p-d-left .prod-img-main img {
+    height: 400px;
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    margin: 1rem 10px;
+  }
+}
+/*# sourceMappingURL=ProductDescription.css.map */

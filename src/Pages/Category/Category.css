@@ -1,0 +1,31 @@
+.category-page {
+  padding: 3rem 5rem;
+}
+
+.category-page h3 {
+  padding: 1rem 0 4rem;
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+.category-page .products-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 100px;
+}
+
+@media screen and (max-width: 400px) {
+  .category-page {
+    padding: 3rem 2.5rem;
+  }
+  .category-page .products-grid {
+    display: block;
+  }
+}
+/*# sourceMappingURL=Category.css.map */

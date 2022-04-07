@@ -1,0 +1,52 @@
+.overlay-div {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.overlay-div .overlay {
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #fcf9f5;
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  padding: 0.4rem 0.8rem;
+  z-index: 1010;
+}
+
+.overlay-div .overlay .cart-total {
+  margin: 3rem 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.overlay-div .overlay .cart-total h3 {
+  font-size: medium;
+}
+
+.overlay-div .overlay .cart-buttons {
+  size: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.overlay-div .overlay .cart-buttons button {
+  padding: 10px 30px;
+}
+/*# sourceMappingURL=CartModal.css.map */

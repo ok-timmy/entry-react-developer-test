@@ -1,0 +1,17 @@
+.cart-page {
+  padding: 0 5rem;
+}
+
+.cart-page .cart-header {
+  font-size: 25px;
+  font-weight: 400;
+  padding: 4rem 0 3rem;
+  border-bottom: 1px black solid;
+}
+
+@media screen and (max-width: 400px) {
+  .cart-page {
+    padding: 0 0.5rem;
+  }
+}
+/*# sourceMappingURL=Cart.css.map */

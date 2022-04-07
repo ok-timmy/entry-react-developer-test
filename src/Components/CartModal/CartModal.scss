@@ -1,0 +1,41 @@
+.overlay-div {
+
+    position: fixed;
+    top: 40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
+  .overlay {
+    width: 300px;
+    height: fit-content;
+    background-color: rgb(252, 249, 245);
+    position: absolute;
+    top: 0;
+    right: 5rem;
+    padding: 0.4rem 0.8rem;
+    z-index: 1010;
+
+    .cart-total{
+      margin: 3rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+
+      h3{
+        font-size: medium;
+      }
+    }
+
+    .cart-buttons{
+      size: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      button{
+        padding: 10px 30px;
+      }
+    }
+  }
+}

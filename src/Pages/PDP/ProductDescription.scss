@@ -1,0 +1,120 @@
+.p-d {
+  padding: 3.5rem 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .p-d-left {
+    flex: 5;
+    display: flex;
+    justify-content: space-between;
+
+    .prod-img-list {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100px;
+        height: 100px;
+        box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        -webkit-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        -moz-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        margin-bottom: 10px;
+        object-fit: cover;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+    }
+
+    .prod-img-main {
+      flex: 5;
+
+      img {
+        height: 500px;
+        box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        -webkit-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        -moz-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
+        object-fit: contain;
+      }
+    }
+  }
+
+  .p-d-right {
+    flex: 3;
+    margin-left: 3rem;
+
+    .p-d-name {
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    .p-d-brand {
+      font-weight: 400;
+      font-size: 20px;
+    }
+
+    .size {
+      padding-top: 2rem;
+    }
+
+    .size-btn {
+      cursor: pointer;
+      padding: 8px 10px;
+      background-color: rgb(255, 255, 255);
+      color: rgb(68, 67, 67);
+      width: 50px;
+      margin-right: 3px;
+      border: 1px solid rgb(204, 203, 203);
+      outline: none;
+    }
+    .active {
+      color: white;
+      background-color: rgb(66, 66, 66);
+    }
+
+    .price {
+      padding: 2rem 0 1rem;
+    }
+
+    .add-to-cart {
+      color: white;
+      margin: 1rem 0 1.5rem;
+      background-color: rgb(49, 112, 65);
+      padding: 0.7rem 5rem;
+      width: 80%;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    display: block;
+    padding: 3rem 0;
+    .p-d-left {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100vw;
+      .prod-img-list {
+        display: inline;
+        padding: 0 7.5px;
+        img {
+          width: 75px;
+          height: 75px;
+          margin-bottom: 10px;
+          object-fit: cover;
+          padding: 0 10px;
+        }
+      }
+      .prod-img-main {
+        display: block;
+        width: 90%;
+        img {
+          height: 400px;
+          width: 100%;
+          object-fit: contain;
+          margin: 1rem 10px;
+        }
+      }
+    }
+  }
+}

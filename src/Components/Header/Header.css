@@ -1,0 +1,97 @@
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: #f6f2f2;
+  box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
+  -moz-box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
+  padding: 10px 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.header .nav-left ul {
+  list-style-type: none;
+}
+
+.header .nav-left ul li {
+  display: inline;
+}
+
+.header .nav-left ul li .nav-link {
+  color: green;
+  border-bottom: 2px solid green;
+  padding-bottom: 18px;
+}
+
+.header .nav-left ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 0 10px;
+  text-transform: uppercase;
+}
+
+.header .logo i {
+  color: green;
+  font-size: x-large;
+}
+
+.header .nav-right ul {
+  list-style-type: none;
+}
+
+.header .nav-right ul li {
+  display: inline;
+  padding: 0 5px;
+}
+
+.header .nav-right ul li select {
+  outline: none;
+  border: none;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.header .nav-right ul li button {
+  border: none;
+  outline: none;
+}
+
+.header .nav-right ul li button i {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.header .nav-right ul li button i span {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 12px;
+  padding: 5px 5px;
+  color: white;
+  background-color: black;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  z-index: 8;
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    padding: 10px 0;
+  }
+}
+/*# sourceMappingURL=Header.css.map */

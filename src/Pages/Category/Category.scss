@@ -1,0 +1,23 @@
+.category-page{
+    padding: 3rem 5rem;
+
+    h3{
+        padding: 1rem 0 4rem;
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 30px;
+    }
+    .products-grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-column-gap: 40px;
+            grid-row-gap: 100px;
+    }
+    @media screen and (max-width:400px) {
+        padding: 3rem 2.5rem;
+        .products-grid{
+            display: block;
+        }
+    }
+}
