@@ -49,4 +49,9 @@
 .overlay-div .overlay .cart-buttons button {
   padding: 10px 30px;
 }
+
+.overlay-div .overlay .cart-buttons .checkout-btn {
+  background-color: #0bc10b;
+  color: white;
+}
 /*# sourceMappingURL=CartModal.css.map */

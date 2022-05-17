@@ -11,40 +11,42 @@ import Home from "./Pages/HomePage/Home";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [categoriesIndex, setCategoriesIndex] = useState('all')
+  const [categoriesIndex, setCategoriesIndex] = useState("all");
   const { loading, error, data } = useQuery(GET_PRODUCTS_QUERY);
   const filterCategory = (catName) => {
-    console.log(catName)
+    console.log(catName);
     setCategoriesIndex(catName);
-  } 
+  };
   useEffect(() => {
-    
-    filterCategory(categoriesIndex)
-
-  }, [categoriesIndex])
+    filterCategory(categoriesIndex);
+  }, [categoriesIndex]);
 
   if (loading) return <h2>Loading...</h2>;
   if (error) console.log(error);
   const { categories } = data;
-  
 
   console.log(categories);
   return (
     <div className="App">
       <Router>
-        <Header categories={categories} isOpen={isOpen} setIsOpen={setIsOpen} filterCategory={filterCategory}/>
+        <Header
+          categories={categories}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          filterCategory={filterCategory}
+        />
         <Routes>
-          <Route  exact
-            path="/"
-            element={<Home home={categories[0]}/>}/>
-            
+          <Route exact path="/" element={<Home home={categories[0]} />} />
           <Route
             exact
             path="/category/:cat_name"
-            element={<Category categories={categories}/>}
+            element={<Category categories={categories} />}
           />
-          <Route path="/cart" element={<Cart categories={categories[categoriesIndex]}/>} />
-          <Route path="/product/:name" element={<ProductDescription/>} />
+          <Route
+            path="/cart"
+            element={<Cart categories={categories[categoriesIndex]} />}
+          />
+          <Route path="/product/:name" element={<ProductDescription />} />
         </Routes>
       </Router>
     </div>

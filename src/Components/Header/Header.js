@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { currencyActions } from "../Store/currency";
 
-function Header({categories, setIsOpen, isOpen }) {
+function Header({ categories, setIsOpen, isOpen }) {
   const cartItemsLength = useSelector((cart) => cart.cart.itemsList.length);
   const currencyList = useSelector((currency) => currency);
   const dispatch = useDispatch();
   const [allCurrencies, setAllCurrencies] = useState([]);
-  const [active, setActive] = useState("all");
+  const [active, setActive] = useState();
 
   const getCurrencies = (currencies) => {
     dispatch(currencyActions.getCurrencies(currencies));
@@ -60,8 +60,10 @@ function Header({categories, setIsOpen, isOpen }) {
             })}
           </ul>
         </nav>
-        <div className="logo">
-          <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+        <div className="logo" onClick={() => setActive("")}>
+          <Link to={"/"}>
+            <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+          </Link>
         </div>
         <nav className="nav-right">
           <ul>

@@ -47,9 +47,9 @@ function CartModalItem({single}) {
       </div>
       <div className="cart-modal-item-right">
         <div className="cart-modal-item-right-content">
-          <button onClick={()=>addToCart(single)}><span><i class="bi bi-plus-lg"></i></span></button>
+          <button onClick={()=>addToCart(single)}><span><i className="bi bi-plus-lg"></i></span></button>
           <span>{single.quantity}</span>
-          <button onClick={()=> removeFromCart(single)}><span><i class="bi bi-dash-lg"></i></span></button>
+          <button onClick={()=> removeFromCart(single)}><span><i className="bi bi-dash-lg"></i></span></button>
         </div>
         <div className="cart-modal-item-img">
           <img src={single.gallery[0]} alt="cart-modal-item-img" />
