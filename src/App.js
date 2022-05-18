@@ -8,6 +8,8 @@ import ProductDescription from "./Pages/PDP/ProductDescription";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Home from "./Pages/HomePage/Home";
+import Footer from "./Components/Footer/Footer";
+import Checkout from "./Pages/Checkout/Checkout";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +49,10 @@ function App() {
             element={<Cart categories={categories[categoriesIndex]} />}
           />
           <Route path="/product/:name" element={<ProductDescription />} />
+          <Route path="/checkout" element={<Checkout />} />
+          
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );

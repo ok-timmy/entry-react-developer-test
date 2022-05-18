@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../../Components/ProductCard/ProductCard";
+// import ProductCard from "../../Components/ProductCard/ProductCard";
 import "./Home.css";
 import { ReactComponent as HomeImage1 } from "../../Components/svgs/Ecommerce checkout laptop-amico.svg";
+import { ReactComponent as Image1 } from "../../Components/svgs/Self checkout-amico.svg";
+import { ReactComponent as Image2 } from "../../Components/svgs/Devices-amico.svg";
+import { ReactComponent as Image3 } from "../../Components/svgs/Choosing clothes-pana.svg";
+import { Link } from "react-router-dom";
+
 
 function Home({ home }) {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -14,7 +19,7 @@ function Home({ home }) {
 
   return (
     <>
-      <div className="sectionOne">
+      <section className="sectionOne">
         <div className="sectionOne__left">
           <h3 className="sectionOne__header">It is a long established fact </h3>
           <p>
@@ -29,13 +34,47 @@ function Home({ home }) {
         <div className="sectionOne__right">
           <HomeImage1 />
         </div>
-      </div>
+      </section>
+
+      <section className="sectionTwo">
+        <h3 className="featured">Categories</h3>
+        <div className="featured-products">
+          <div className="category__card">
+            <div className="card-svg"><Image1/></div>
+            <h5>All Categories</h5>
+            <p> This category Leads to all products</p>
+            <button>View All</button>
+          </div>
+
+          <div className="category__card">
+            <div className="card-svg"><Image3/></div>
+            <h5>Fashion</h5>
+            <p> This category Leads to all products</p>
+            <button>View All</button>
+          </div>
+
+          <div className="category__card">
+            <div className="card-svg"><Image2/></div>
+            <h5>Technology</h5>
+            <p> This category Leads to all products</p>
+            <button>View All</button>
+          </div>
+        </div>
+      </section>
 
       <section className="home__category">
         <h3 className="featured">Featured Products </h3>
         <div className="featured-products">
           {featuredProductsList.map((single) => {
-            return <ProductCard key={single.id} single={single} />;
+            return <div className="featured-card" key={single.id}>
+            <div className="featured-card-div">
+              <Link to={`/product/:${single.name}`} state={{ single: single }}>
+                <div className="featured-product-image">
+                  <img src={single.gallery[0]} alt={"product"} className="image" />
+                </div>
+              </Link>
+            </div>
+          </div>;
           })}
         </div>
       </section>

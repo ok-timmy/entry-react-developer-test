@@ -44,13 +44,92 @@
     justify-content: center;
     margin-left: 1.5rem;
   }
+
+  @media screen and (max-width: 480px) {
+      display: block;
+
+      .sectionOne__right{
+          margin: 2.5rem auto;
+      }
+  }
+}
+
+.sectionTwo {
+    display: flex;
+    flex-direction: column;
+
+    .featured {
+        width: 40%;
+        text-align: center;
+        border-bottom: 1px solid green;
+        padding-bottom: 1rem;
+        font-weight: 300;
+        font-size: 2rem;
+        margin: 2rem auto 1.8rem;
+    
+        @media screen and (max-width: 480px) {
+            width: 80%;
+        }
+      }
+
+    .featured-products {
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 2.5rem;
+
+    .category__card {
+        width: 350px;
+        height: auto;
+        border: 1px solid rgb(195, 194, 194);
+        border-radius: 10px;
+        padding: 20px 20px;
+
+        .card-svg {
+            width: 150px;
+            height: auto;
+        }
+
+        h5{
+            font-weight: 200;
+            font-size: 2rem;
+            margin-bottom: 0.7rem;
+        }
+
+        p{
+            font-size: 1.1rem;
+            font-weight:200 ;
+            margin-bottom: 0.8rem;
+        }
+
+        button {
+            background-color: green;
+            color:  white;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(42, 212, 42);
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 1.5rem 
+    }
+    }
 }
 
 .home__category {
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  margin: auto !important;
 
   .featured-products {
     margin-left: auto;
@@ -58,7 +137,39 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 2.5rem;
+    grid-column-gap: 3.5rem;
+
+    .featured-card{
+        height: 300px;
+        width: 300px;
+
+        &:hover {
+            box-shadow: 10px 10px 5px 0px rgba(247, 246, 246, 0.75);
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(247, 246, 246, 0.75);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(247, 246, 246, 0.75);
+        }
+
+        .featured-card-div {
+            height: 300px;
+            width: 300px;
+
+            .featured-product-image {
+                height: 300px;
+                width: 300px;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 1.5rem 
+    }
   }
 
   .featured {
@@ -69,15 +180,14 @@
     font-weight: 300;
     font-size: 2rem;
     margin: 2rem auto 1.8rem;
+
+    @media screen and (max-width: 480px) {
+        width: 80%;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
-  .featured-products {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(3, 1fr) !important;
-    grid-row-gap: 1.5rem !important;
-  }
 
   .sectionOne {
     display: block;
