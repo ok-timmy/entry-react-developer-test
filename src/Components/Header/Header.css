@@ -15,6 +15,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1000000;
 }
 
 .header .nav-left ul {
@@ -67,6 +68,8 @@
 .header .nav-right ul li button i {
   font-size: 1.5rem;
   position: relative;
+  color: #132513;
+  cursor: pointer;
 }
 
 .header .nav-right ul li button i span {
@@ -76,7 +79,7 @@
   font-size: 12px;
   padding: 5px 5px;
   color: white;
-  background-color: black;
+  background-color: #0d4e0d;
   height: 80%;
   width: 80%;
   border-radius: 50%;

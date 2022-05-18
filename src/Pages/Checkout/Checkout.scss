@@ -1,9 +1,10 @@
 .checkout {
-  h4 {
+  .checkout__header {
     text-align: center;
     border-bottom: 1px solid black;
     font-weight: 400;
     font-size: 2rem;
+    padding-top: 1rem;
   }
 
   .checkout__page {
@@ -11,10 +12,63 @@
     display: flex;
     max-width: 90%;
     border: 1px solid green;
+    border-radius: 5px;
 
     .main__cart {
       flex: 3;
       border-right: 1px solid green;
+      position: relative;
+
+      .cart__header {
+          text-align: center;
+          border-bottom: 1px solid green;
+          font-size: 2rem;
+          font-weight: 200;
+      }
+
+      .cart__item {
+          margin-top: 1rem;
+          padding-bottom: 20px;
+          padding-left: 10px;
+          border-bottom: 1px solid green;
+          display: flex;
+
+          .cart__item__left {
+              flex: 6;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+
+              label {
+                  font-size: 20px;
+              }
+
+              span {
+                  font-size: 20px;
+                  font-weight: 300;
+              }
+          }
+
+          .cart__item__right {
+              flex: 3;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              margin-left: 10px;
+              margin-right: 10px;
+
+              .cart__item__img {
+                  width: 120px;
+                  height: 120px;
+                  border: 1px solid green;
+
+                  img{
+                      width: 100%;
+                      height: 100%;
+                  }
+              }
+          }
+      }
 
       @media screen and (max-width: 480px) {
         border-right: none;
@@ -72,6 +126,26 @@
           grid-template-rows: repeat(6, 1fr);
         }
       }
+
+      .button__div {
+        display: flex;
+        justify-content: end;
+        padding: 1rem 1rem;
+
+        button {
+          background-color: green;
+          color: white;
+          padding: 10px 15px;
+          border-radius: 10px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgb(58, 188, 58);
+          }
+        }
+      }
     }
 
     @media screen and (max-width: 480px) {
@@ -79,4 +153,43 @@
       flex-direction: column;
     }
   }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
+
+.costs {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top: 2px solid green;
+
+    div {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+
+        label {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        span {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        position: relative;
+    }
 }

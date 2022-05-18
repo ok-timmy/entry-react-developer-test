@@ -2,21 +2,22 @@
   height: 50px;
   width: 100%;
   background-color: rgb(246, 242, 242);
-  box-shadow: 0px 6px 5px 0px rgba(209,204,204,0.75);
--webkit-box-shadow: 0px 6px 5px 0px rgba(209,204,204,0.75);
--moz-box-shadow: 0px 6px 5px 0px rgba(209,204,204,0.75);
+  box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
+  -moz-box-shadow: 0px 6px 5px 0px rgba(209, 204, 204, 0.75);
   padding: 10px 5rem;
   display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
+  z-index: 1000000;
 
   .nav-left {
     ul {
       list-style-type: none;
       li {
         display: inline;
-        .nav-link{
+        .nav-link {
           color: green;
           border-bottom: 2px solid green;
           padding-bottom: 18px;
@@ -32,57 +33,56 @@
   }
 
   .logo {
-    i{
+    i {
       color: green;
       font-size: x-large;
     }
   }
 
-
   .nav-right {
     ul {
-        list-style-type: none;
-        li {
-          display: inline;
-          padding: 0 5px;
+      list-style-type: none;
+      li {
+        display: inline;
+        padding: 0 5px;
 
-          select{
-            outline: none;
-            border: none;
-            width: 2rem;
+        select {
+          outline: none;
+          border: none;
+          width: 2rem;
+          cursor: pointer;
+        }
+
+        button {
+          border: none;
+          outline: none;
+
+          i {
+            font-size: 1.5rem;
+            position: relative;
+            color: rgb(19, 37, 19);
             cursor: pointer;
 
-          }
-
-          button{
-            border: none;
-            outline: none;
-            
-            i{
-              font-size: 1.5rem;
-              position: relative;
-
-              span{
-                position: absolute;
-                top: -8px;
-                right: -8px;
-                font-size: 12px;
-                padding: 5px 5px;
-                color: white;
-                background-color: black;
-                height: 80%;
-                width: 80%;
-                border-radius: 50%;
-                z-index: 8;
-              }
+            span {
+              position: absolute;
+              top: -8px;
+              right: -8px;
+              font-size: 12px;
+              padding: 5px 5px;
+              color: white;
+              background-color: rgb(13, 78, 13);
+              height: 80%;
+              width: 80%;
+              border-radius: 50%;
+              z-index: 8;
             }
           }
         }
-       
       }
+    }
   }
 
-  @media screen and (max-width:400px) {
+  @media screen and (max-width: 400px) {
     display: flex;
     justify-content: space-evenly;
     padding: 10px 0;
