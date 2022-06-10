@@ -29,7 +29,7 @@ function Header({ categories, setIsOpen, isOpen }) {
   const { loading, error, data } = useQuery(GET_CURRENCIES);
 
   if (loading) {
-    return <h2>Loading....</h2>;
+    return <div className="loader"></div>;
   } else if (error) {
     console.log(error);
   } else {
