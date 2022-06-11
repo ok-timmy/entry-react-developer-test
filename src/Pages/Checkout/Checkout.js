@@ -98,7 +98,7 @@ function Checkout() {
                 </div>
                 <div>
                   <label>Total:</label>{" "}
-                  <span>{currency.currencies[index].symbol}{cartItems.cart.totalCartPrice[index]}</span>
+                  <span>{currency.currencies[index].symbol} {cartItems.cart.totalCartPrice[index]}</span>
                 </div>{" "}
                 <div>
                   <label>Sub Total</label>
