@@ -162,7 +162,7 @@ function Checkout() {
               <label htmlFor="address">Address</label>
               <input
                 type={"text"}
-                placeholder="John Doe"
+                placeholder="13, Garki Crescent, Ajah"
                 className="detail__input"
                 id="address"
               />
