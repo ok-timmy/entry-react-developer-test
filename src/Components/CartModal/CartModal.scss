@@ -40,7 +40,9 @@
     z-index: 101000;
     overflow-y: auto;
 
- 
+ @media screen and (max-width:480px) {
+   right: 1rem;
+ }
 
 
     .cart-total{

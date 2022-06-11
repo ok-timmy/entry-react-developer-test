@@ -4,10 +4,6 @@
     box-sizing: border-box;;
 }
 
-/* .loader {
-    border-top: 16px solid rgb(8, 198, 97);
-    border-bottom: 16px solid rgb(8, 198, 97);
-  } */
 
   .loader {
       margin: auto;

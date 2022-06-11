@@ -1,5 +1,6 @@
 .category-page{
     padding: 3rem 5rem;
+    height: auto;
 
     h3{
         padding: 1rem 0 4rem;
@@ -10,7 +11,7 @@
     .products-grid{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(auto, 1fr);
             grid-column-gap: 40px;
             grid-row-gap: 100px;
     }
@@ -20,4 +21,11 @@
             display: block;
         }
     }
+    @media screen and (max-width:960px) {
+        padding: 3rem 2.5rem;
+        .products-grid{
+            grid-template-columns: repeat(2, 1fr)
+        }
+    }
 }
+

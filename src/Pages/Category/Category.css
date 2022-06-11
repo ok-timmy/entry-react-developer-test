@@ -1,5 +1,6 @@
 .category-page {
   padding: 3rem 5rem;
+  height: auto;
 }
 
 .category-page h3 {
@@ -14,8 +15,8 @@
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: (1fr)[3];
-      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[auto];
+      grid-template-rows: repeat(auto, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 100px;
 }
@@ -26,6 +27,16 @@
   }
   .category-page .products-grid {
     display: block;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .category-page {
+    padding: 3rem 2.5rem;
+  }
+  .category-page .products-grid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 /*# sourceMappingURL=Category.css.map */
