@@ -12,6 +12,12 @@
           justify-content: space-between;
 }
 
+@media screen and (max-width: 960px) {
+  .p-d {
+    padding: 3.5rem 1rem;
+  }
+}
+
 .p-d .p-d-left {
   -webkit-box-flex: 5;
       -ms-flex: 5;
@@ -60,6 +66,7 @@
 
 .p-d .p-d-left .prod-img-main img {
   height: 500px;
+  width: 100%;
   box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
   -webkit-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(232, 221, 221, 0.75);
@@ -72,6 +79,12 @@
       -ms-flex: 3;
           flex: 3;
   margin-left: 3rem;
+}
+
+@media screen and (max-width: 960px) {
+  .p-d .p-d-right {
+    margin-left: 1rem;
+  }
 }
 
 .p-d .p-d-right .p-d-name {
@@ -111,13 +124,18 @@
 .p-d .p-d-right .add-to-cart {
   color: white;
   margin: 1rem 0 1.5rem;
-  background-color: #317041;
+  background-color: green;
   padding: 0.7rem 5rem;
   width: 80%;
   cursor: pointer;
+  border: none;
 }
 
-@media screen and (max-width: 400px) {
+.p-d .p-d-right .add-to-cart :hover {
+  background-color: #8ce48c;
+}
+
+@media screen and (max-width: 600px) {
   .p-d {
     display: block;
     padding: 3rem 0;
@@ -154,6 +172,9 @@
     -o-object-fit: contain;
        object-fit: contain;
     margin: 1rem 10px;
+  }
+  .p-d .p-d-description {
+    padding: 0 20px;
   }
 }
 /*# sourceMappingURL=ProductDescription.css.map */

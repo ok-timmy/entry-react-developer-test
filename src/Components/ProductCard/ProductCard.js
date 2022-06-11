@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 function ProductCard({ single }) {
-  const currencyList = useSelector((currency) => currency);
   const [index, setIndex] = useState(0);
-
+  const currencyList = useSelector((currency) => currency);
+  
   useEffect(() => {
     setIndex(currencyList.currency.currencyIndex);
   }, [currencyList.currency]);

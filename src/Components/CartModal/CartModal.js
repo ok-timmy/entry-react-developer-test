@@ -7,7 +7,7 @@ import "./CartModal.css";
 function CartModal({ isOpen, setIsOpen, onClickOutside, categories }) {
   const [products, setProducts] = useState({});
   const cartItems = useSelector((cart) => cart.cart);
-  const {currency} = useSelector((currency) => currency);
+  const { currency } = useSelector((currency) => currency);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -36,30 +36,39 @@ function CartModal({ isOpen, setIsOpen, onClickOutside, categories }) {
     return (
       <div className="overlay-div">
         <div ref={ref} className="overlay">
-         { cartItems.totalQuantity? <>
-          <div>
-            <h4>
-              My Bag <span>{cartItems.totalQuantity} Items</span>
-            </h4>
-          </div>
-          <div className="cart-modal-products">
-            {products.map((single) => {
-              return <CartModalItem key={single.id} single={single} />;
-            })}
-          </div>
-          <div className="cart-total">
-            <h3>Total</h3>
-            <h3>{currency.currencies[index].symbol} {parseFloat(cartItems.totalCartPrice[index]).toFixed(2)}</h3>
-          </div>
-          <div className="cart-buttons">
-            <Link to={"/cart"}>
-              <button onClick={() => setIsOpen(false)}>VIEW BAG</button>
-            </Link>
-            <Link to={"/checkout"}>
-            <button className="checkout-btn">CHECK OUT</button>
-            </Link>
-          </div>
-          </> : <div> There is no Item In your Cart</div>}
+          {cartItems ? (
+            <>
+              <div>
+                <h4>
+                  My Bag <span>{cartItems.totalQuantity} Items</span>
+                </h4>
+              </div>
+              <div className="cart-modal-products">
+                {products.map((single) => {
+                  return <CartModalItem key={single.id} single={single} />;
+                })}
+              </div>
+              <div className="cart-total">
+                <h3>Total</h3>
+                <h3>
+                  {currency.currencies[index].symbol}{" "}
+                  {cartItems.totalCartPrice.length !== 0
+                    ? parseFloat(cartItems.totalCartPrice[index])
+                    : 0}
+                </h3>
+              </div>
+              <div className="cart-buttons">
+                <Link to={"/cart"}>
+                  <button onClick={() => setIsOpen(false)}>VIEW BAG</button>
+                </Link>
+                <Link to={"/checkout"}>
+                  <button className="checkout-btn">CHECK OUT</button>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div> There is no Item In your Cart</div>
+          )}
         </div>
       </div>
     );

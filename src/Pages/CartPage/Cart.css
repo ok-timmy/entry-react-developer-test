@@ -1,5 +1,6 @@
 .cart-page {
   padding: 0 5rem;
+  min-height: 90vh;
 }
 
 .cart-page .cart-header {
@@ -9,9 +10,39 @@
   border-bottom: 1px black solid;
 }
 
-@media screen and (max-width: 400px) {
+.cart-page .total {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
   .cart-page {
     padding: 0 0.5rem;
   }
+}
+
+.empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.empty div {
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+}
+
+.empty p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 /*# sourceMappingURL=Cart.css.map */

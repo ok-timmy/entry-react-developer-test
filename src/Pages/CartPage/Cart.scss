@@ -1,5 +1,6 @@
 .cart-page {
     padding: 0 5rem;
+    min-height: 90vh;
 
     .cart-header{
         font-size: 25px;
@@ -8,7 +9,31 @@
         border-bottom: 1px black solid;
     }
 
-    @media screen and (max-width:400px) {
+    .total {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    @media screen and (max-width:600px) {
         padding: 0 0.5rem;
+       
+    }
+}
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    div{
+        width: 20rem;
+        height: 20rem;
+        margin: auto;
+    }
+
+    p{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 300;
     }
 }

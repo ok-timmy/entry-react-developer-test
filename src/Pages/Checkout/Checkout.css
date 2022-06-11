@@ -95,6 +95,37 @@
   height: 100%;
 }
 
+.checkout .checkout__page .main__cart .costs {
+  width: 100%;
+  border-top: 2px solid green;
+}
+
+.checkout .checkout__page .main__cart .costs div {
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.checkout .checkout__page .main__cart .costs div label {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.checkout .checkout__page .main__cart .costs div span {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 480px) {
+  .checkout .checkout__page .main__cart .costs {
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .checkout .checkout__page .main__cart {
     border-right: none;
@@ -153,30 +184,30 @@
 }
 
 .checkout .checkout__page .main__checkout .form div input::-webkit-input-placeholder {
-  font-weight: 100;
-  font-size: 1rem;
+  font-weight: lighter;
+  font-size: 0.9rem;
 }
 
 .checkout .checkout__page .main__checkout .form div input:-ms-input-placeholder {
-  font-weight: 100;
-  font-size: 1rem;
+  font-weight: lighter;
+  font-size: 0.9rem;
 }
 
 .checkout .checkout__page .main__checkout .form div input::-ms-input-placeholder {
-  font-weight: 100;
-  font-size: 1rem;
+  font-weight: lighter;
+  font-size: 0.9rem;
 }
 
 .checkout .checkout__page .main__checkout .form div input::placeholder {
-  font-weight: 100;
-  font-size: 1rem;
+  font-weight: lighter;
+  font-size: 0.9rem;
 }
 
 .checkout .checkout__page .main__checkout .form div input:focus {
   outline: 1px green solid;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 960px) {
   .checkout .checkout__page .main__checkout .form {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -238,38 +269,5 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: 300;
-}
-
-.costs {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  border-top: 2px solid green;
-}
-
-.costs div {
-  padding: 0 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.costs div label {
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-.costs div span {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-@media screen and (max-width: 480px) {
-  .costs {
-    position: relative;
-  }
 }
 /*# sourceMappingURL=Checkout.css.map */

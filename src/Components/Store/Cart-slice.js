@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    itemsList: [],
-    totalQuantity: 0,
+    itemsList: JSON.parse(localStorage.getItem("Cart")) || [],
+    totalQuantity: JSON.parse(localStorage.getItem("Cart")).length || 0,
     totalPrices: [],
-    totalCartPrice: [],
+    totalCartPrice: JSON.parse(localStorage.getItem("Total Sum")) || [],
   },
 
   reducers: {
@@ -64,13 +64,23 @@ const cartSlice = createSlice({
         // console.log(state.totalCartPrice)
 
         function sumArrays(arrays) {
+       
+
           const n = arrays.reduce((max, xs) => Math.max(max, xs.length), 0);
           const result = Array.from({ length: n });
           const myTotal = result.map((_, i) => arrays.map(xs => xs[i] || 0).reduce((sum, x) => sum + x, 0));
-          state.totalCartPrice= myTotal
+          
+          const  RoundedTotality = [...myTotal].map((x)=>{
+              return Number(x.toFixed(2));
+          });
+          state.totalCartPrice= RoundedTotality;
+          return RoundedTotality;
         }
 
-        sumArrays(state.totalPrices);
+       const totality = sumArrays(state.totalPrices);
+
+
+       localStorage.setItem("Total Sum", JSON.stringify(totality));
         // console.log(state.totalCartPrice);
 
       }
@@ -106,6 +116,8 @@ if (newItem.selected === []) {
         existingItem.quantity++;
         existingItem.prices = newPrices;
         existingItem.totalPrice = newPrices;
+        cartSlice.caseReducers.calcTotalPrice(state, state.itemsList);
+        
       } else {
         state.itemsList.push({
           id: newItem.id,
@@ -116,13 +128,14 @@ if (newItem.selected === []) {
           gallery: newItem.gallery,
         });
         state.totalQuantity++;
+        cartSlice.caseReducers.calcTotalPrice(state, state.itemsList);
       }
-
+      
       const totalAction = state.itemsList;
-
-      cartSlice.caseReducers.calcTotalPrice(state, totalAction);
+      
       cartSlice.caseReducers.calcCartTotalAmount(state, totalAction);
-
+      
+      localStorage.setItem("Cart", JSON.stringify(totalAction));
 
     },
 
@@ -152,6 +165,8 @@ if (newItem.selected === []) {
         existingItem.quantity--;
         existingItem.prices = newPrices;
         existingItem.totalPrice = newPrices;
+        cartSlice.caseReducers.calcTotalPrice(state, action);
+        cartSlice.caseReducers.calcCartTotalAmount(state, action);
 
       } else {
         const existingItem = state.itemsList.find(
@@ -162,10 +177,11 @@ if (newItem.selected === []) {
 
         state.itemsList = itemsLists;
         state.totalQuantity--;
+        cartSlice.caseReducers.calcTotalPrice(state, action);
+        cartSlice.caseReducers.calcCartTotalAmount(state, action);
       }
     
-      cartSlice.caseReducers.calcTotalPrice(state, action);
-      cartSlice.caseReducers.calcCartTotalAmount(state, action);
+      localStorage.setItem("Cart", JSON.stringify(state.itemsList));
     },
   },
 });

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Cart.css';
 import CartItem from '../../Components/CartItem/CartItem';
 import {  useSelector } from 'react-redux';
+import { ReactComponent as Empty } from "../../Components/svgs/Empty-pana.svg";
 
 function Cart() {
   const currencyList = useSelector((currency) => currency);
@@ -28,11 +29,16 @@ function Cart() {
       { 
       products.length ? products.map((single) => {
         return <CartItem key={single.id} single={single} />;
-      }) : <div>You Have No products In Your Cart Yet</div>  
+      }) :  <div className="empty">
+      <div>
+        <Empty />
+      </div>
+      <p>You Have No products In Your Cart Yet</p>
+    </div>  
       }
       
       <div>
-      {products.length ? <div> Total: {(cartItems.cart.totalCartPrice[index])} </div>
+      {products.length ? <div className='total'> Total:  {(currencyList.currency.currencies[index].symbol)}{(cartItems.cart.totalCartPrice[index])} </div>
       : <div></div> } 
 
       </div>

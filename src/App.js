@@ -1,7 +1,7 @@
 import "./App.css";
 import Category from "./Pages/Category/Category";
 import { useQuery } from "@apollo/client";
-import { GET_PRODUCTS_QUERY } from "./graphql/Queries";
+import { GET_PRODUCTS_QUERY, GET_CURRENCIES } from "./graphql/Queries";
 import Header from "./Components/Header/Header";
 import Cart from "./Pages/CartPage/Cart";
 import ProductDescription from "./Pages/PDP/ProductDescription";
@@ -14,35 +14,39 @@ import Checkout from "./Pages/Checkout/Checkout";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [categoriesIndex, setCategoriesIndex] = useState("all");
-  const { loading, error, data } = useQuery(GET_PRODUCTS_QUERY);
+  const { loading: categoriesLoading, error: categoriesError, data : categories } = useQuery(GET_PRODUCTS_QUERY);
+  const { loading: currenciesLoading, error: currenciesError, data:currencies } = useQuery(GET_CURRENCIES);
   const filterCategory = (catName) => {
-    console.log(catName);
+    // console.log(catName);
     setCategoriesIndex(catName);
   };
   useEffect(() => {
     filterCategory(categoriesIndex);
   }, [categoriesIndex]);
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) console.log(error);
-  const { categories } = data;
+  if (categoriesLoading || currenciesLoading) return <div className="loader"></div>;
+  else if (categoriesError) console.log(categoriesError.message);
+  else if (currenciesError) console.log(currenciesError.message);
+  // const  categories = data;
+  // console.log(currencies);
 
-  console.log(categories);
+  // console.log(categories.categories);
   return (
     <div className="App">
       <Router>
         <Header
-          categories={categories}
+          categories={categories.categories}
+          currencies = {currencies.currencies}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           filterCategory={filterCategory}
         />
         <Routes>
-          <Route exact path="/" element={<Home home={categories[0]} />} />
+          <Route exact path="/" element={<Home home={categories.categories[0]} />} />
           <Route
             exact
             path="/category/:cat_name"
-            element={<Category categories={categories} />}
+            element={<Category categories={categories.categories} />}
           />
           <Route
             path="/cart"

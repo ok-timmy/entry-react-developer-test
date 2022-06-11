@@ -1,41 +1,25 @@
 import React, { useEffect, useState } from "react";
 import CartModal from "../CartModal/CartModal";
 import "./Header.css";
-import { GET_CURRENCIES } from "../../graphql/Queries";
-import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { currencyActions } from "../Store/currency";
 
-function Header({ categories, setIsOpen, isOpen }) {
+function Header({ categories, setIsOpen, isOpen, currencies }) {
   const cartItemsLength = useSelector((cart) => cart.cart.itemsList.length);
   const currencyList = useSelector((currency) => currency);
   const dispatch = useDispatch();
   const [allCurrencies, setAllCurrencies] = useState([]);
   const [active, setActive] = useState();
-
-  const getCurrencies = (currencies) => {
-    dispatch(currencyActions.getCurrencies(currencies));
-  };
-
-  const changeCurrency = (selectedCurrency) => {
-    dispatch(currencyActions.changeCurrency(selectedCurrency));
-  };
-
   useEffect(() => {
     setAllCurrencies(currencyList.currency.currencies);
   }, [currencyList]);
 
-  const { loading, error, data } = useQuery(GET_CURRENCIES);
+  dispatch(currencyActions.getCurrencies(currencies));
 
-  if (loading) {
-    return <div className="loader"></div>;
-  } else if (error) {
-    console.log(error);
-  } else {
-    const { currencies } = data;
-    getCurrencies(currencies);
-  }
+  const changeCurrency = (selectedCurrency) => {
+    dispatch(currencyActions.changeCurrency(selectedCurrency));
+  };
 
   return (
     <>

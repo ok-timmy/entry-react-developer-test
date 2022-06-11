@@ -31,7 +31,7 @@ function CartItem({ single }) {
     );
   };
 
-  console.log(single);
+  // console.log(single);
   return (
     <div className="cart-item-content">
       <div className="cart-item-left">
@@ -52,9 +52,9 @@ function CartItem({ single }) {
       </div>
       <div className="cart-item-right">
         <div className="cart-item-right-content">
-          <button onClick={() => addToCart(single)}><i class="bi bi-plus-lg"></i></button>
+          <button onClick={() => addToCart(single)}><i className="bi bi-plus-lg"></i></button>
           <span>{single.quantity}</span>
-          <button onClick={()=> removeFromCart(single)}><i class="bi bi-dash-lg"></i></button>
+          <button onClick={()=> removeFromCart(single)}><i className="bi bi-dash-lg"></i></button>
         </div>
         <div className="cart-item-img">
           <img src={single.gallery[0]} alt="cart-item-img" />
