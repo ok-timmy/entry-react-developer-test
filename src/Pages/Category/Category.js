@@ -12,7 +12,7 @@ function Category({ categories}) {
   const location = useLocation();
   const from = location.state
   const dodo = from.param;
-  console.log(dodo);
+  // console.log(dodo);
 
 
 

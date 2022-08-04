@@ -59,7 +59,7 @@ function CartModal({ isOpen, setIsOpen, onClickOutside, categories }) {
               </div>
               <div className="cart-buttons">
                 <Link to={"/cart"}>
-                  <button onClick={() => setIsOpen(false)}>VIEW BAG</button>
+                  <button className="view__bag" onClick={() => setIsOpen(false)}>VIEW BAG</button>
                 </Link>
                 <Link to={"/checkout"}>
                   <button className="checkout-btn">CHECK OUT</button>

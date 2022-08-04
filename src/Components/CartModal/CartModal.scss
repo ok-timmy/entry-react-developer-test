@@ -62,10 +62,28 @@
       margin-bottom: 10px;
       button{
         padding: 10px 30px;
-      }
-      .checkout-btn {
-        background-color: rgb(11, 193, 11);
-        color: white;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        border: none;
+
+        &.view__bag {
+          color: black;
+          background-color: rgb(254, 254, 254);
+
+          &:hover {
+            background-color: rgb(59, 153, 73);
+            color: white;
+          }
+        }
+        &.checkout-btn {
+          background-color: rgb(11, 193, 11);
+          color: white;
+          &:hover{
+            background-color: rgb(56, 168, 56);
+            color: black;
+          }
+  
+        }
       }
     }
   }

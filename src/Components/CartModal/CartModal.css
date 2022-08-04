@@ -75,10 +75,28 @@
 
 .overlay-div .overlay .cart-buttons button {
   padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: none;
 }
 
-.overlay-div .overlay .cart-buttons .checkout-btn {
+.overlay-div .overlay .cart-buttons button.view__bag {
+  color: black;
+  background-color: #fefefe;
+}
+
+.overlay-div .overlay .cart-buttons button.view__bag:hover {
+  background-color: #3b9949;
+  color: white;
+}
+
+.overlay-div .overlay .cart-buttons button.checkout-btn {
   background-color: #0bc10b;
   color: white;
+}
+
+.overlay-div .overlay .cart-buttons button.checkout-btn:hover {
+  background-color: #38a838;
+  color: black;
 }
 /*# sourceMappingURL=CartModal.css.map */

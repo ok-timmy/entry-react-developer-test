@@ -21,7 +21,7 @@ function Home({ home }) {
     <>
       <section className="sectionOne">
         <div className="sectionOne__left">
-          <h3 className="sectionOne__header">It is a long established fact </h3>
+          <h3 className="sectionOne__header">Shopping Made Easy </h3>
           <p>
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point

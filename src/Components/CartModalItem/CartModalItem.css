@@ -79,6 +79,7 @@
 
 .cart-modal-item-content .cart-modal-item-right .cart-modal-item-right-content button {
   padding: 1px 7px;
+  cursor: pointer;
 }
 
 .cart-modal-item-content .cart-modal-item-right .cart-modal-item-right-content button span {
