@@ -3,20 +3,30 @@ import { useSelector } from "react-redux";
 import "./Checkout.css";
 import { ReactComponent as Empty } from "../../Components/svgs/Empty-pana.svg";
 import Attributes from "../../Components/Attributes/Attributes";
+import Paystack from "../../Components/Paystack/paystack";
 
 function Checkout() {
-  const currencyList = useSelector((currency) => currency);
+  // const currencyList = useSelector((currency) => currency);
   const cartItems = useSelector((cart) => cart);
-  const {currency} = useSelector((currency) => currency);
+  const { currency } = useSelector((currency) => currency);
+  const [name, setname] = useState({
+    firstName: "",
+    lastName: "",
+  });
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState({
+    contact1: "",
+    contact2: "",
+  });
 
-    const shippingCosts = [ 20, 16.02, 28.51, 2583.51, 1300.00 ];
+  const shippingCosts = [20, 16.02, 28.51, 2583.51, 1300.0];
 
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setIndex(currencyList.currency.currencyIndex);
-  }, [currencyList.currency]);
+    setIndex(currency.currencyIndex);
+  }, [currency]);
 
   useEffect(() => {
     setProducts(cartItems.cart.itemsList);
@@ -94,15 +104,24 @@ function Checkout() {
                 {" "}
                 <div>
                   <label>Shipping Cost:</label>
-                  <span>{currency.currencies[index].symbol} {shippingCosts[index]}</span>
+                  <span>
+                    {currency.currencies[index].symbol} {shippingCosts[index]}
+                  </span>
                 </div>
                 <div>
                   <label>Total:</label>{" "}
-                  <span>{currency.currencies[index].symbol} {cartItems.cart.totalCartPrice[index]}</span>
+                  <span>
+                    {currency.currencies[index].symbol}{" "}
+                    {cartItems.cart.totalCartPrice[index]}
+                  </span>
                 </div>{" "}
                 <div>
                   <label>Sub Total</label>
-                  <span>{currency.currencies[index].symbol} {shippingCosts[index] + cartItems.cart.totalCartPrice[index]}</span>
+                  <span>
+                    {currency.currencies[index].symbol}{" "}
+                    {shippingCosts[index] +
+                      cartItems.cart.totalCartPrice[index]}
+                  </span>
                 </div>
               </div>
             ) : (
@@ -120,6 +139,10 @@ function Checkout() {
                 placeholder="John"
                 className="detail__input"
                 id="firstname"
+                value={name.firstName}
+                onChange={(e) =>
+                  setname((prev) => ({ ...prev, firstName: e.target.value }))
+                }
               />
             </div>
             <div>
@@ -129,6 +152,10 @@ function Checkout() {
                 placeholder="Doe"
                 className="detail__input"
                 id="lastname"
+                value={name.lastName}
+                onChange={(e) =>
+                  setname((prev) => ({ ...prev, lastName: e.target.value }))
+                }
               />
             </div>
             <div>
@@ -138,6 +165,8 @@ function Checkout() {
                 placeholder="john@gmail.com"
                 className="detail__input"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -147,6 +176,10 @@ function Checkout() {
                 placeholder="+2348123456789"
                 className="detail__input"
                 id="number1"
+                value={contact.contact1}
+                onChange={(e) =>
+                  setContact((prev) => ({ ...prev, contact1: e.target.value }))
+                }
               />
             </div>
             <div>
@@ -156,6 +189,10 @@ function Checkout() {
                 placeholder="+2348123456789"
                 className="detail__input"
                 id="number2"
+                value={contact.contact2}
+                onChange={(e) =>
+                  setContact((prev) => ({ ...prev, contact2: e.target.value }))
+                }
               />
             </div>
             <div>
@@ -187,7 +224,14 @@ function Checkout() {
             </div>
           </form>
           <div className="button__div">
-            <button>Pay Now</button>
+            <Paystack
+              name={name}
+              email={email}
+              contact={contact}
+              cartPrice={
+                Number(cartItems.cart.totalCartPrice[0]*100)
+              }
+            />
           </div>
         </div>
       </div>

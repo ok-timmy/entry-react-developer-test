@@ -11,7 +11,6 @@ const cartSlice = createSlice({
 
   reducers: {
     calcTotalPrice(state, action) {
-
       if (!state.itemsList) {
         state.totalPrices = [
           {
@@ -45,13 +44,14 @@ const cartSlice = createSlice({
         state.totalPrices = totalPricesArray;
 
         const totalCostArray = [];
-        for(let j=0; j<totalPricesArray.length; j++){
+        for (let j = 0; j < totalPricesArray.length; j++) {
           const eachItemCostArray = [];
-          for(let k=0; k<totalPricesArray[j].length; k++){
-          let newCostArray = totalPricesArray[j][k].amount;
-          eachItemCostArray.push(newCostArray);
+          for (let k = 0; k < totalPricesArray[j].length; k++) {
+            let newCostArray = totalPricesArray[j][k].amount;
+            eachItemCostArray.push(newCostArray);
+          }
+          totalCostArray.push(eachItemCostArray);
         }
-      totalCostArray.push(eachItemCostArray);}
         // console.log(totalCostArray)
         state.totalPrices = totalCostArray;
       }
@@ -64,48 +64,49 @@ const cartSlice = createSlice({
         // console.log(state.totalCartPrice)
 
         function sumArrays(arrays) {
-       
-
           const n = arrays.reduce((max, xs) => Math.max(max, xs.length), 0);
           const result = Array.from({ length: n });
-          const myTotal = result.map((_, i) => arrays.map(xs => xs[i] || 0).reduce((sum, x) => sum + x, 0));
-          
-          const  RoundedTotality = [...myTotal].map((x)=>{
-              return Number(x.toFixed(2));
+          const myTotal = result.map((_, i) =>
+            arrays.map((xs) => xs[i] || 0).reduce((sum, x) => sum + x, 0)
+          );
+
+          const RoundedTotality = [...myTotal].map((x) => {
+            return Number(x.toFixed(2));
           });
-          state.totalCartPrice= RoundedTotality;
+          state.totalCartPrice = RoundedTotality;
           return RoundedTotality;
         }
 
-       const totality = sumArrays(state.totalPrices);
+        const totality = sumArrays(state.totalPrices);
 
-
-       localStorage.setItem("Total Sum", JSON.stringify(totality));
+        localStorage.setItem("Total Sum", JSON.stringify(totality));
         // console.log(state.totalCartPrice);
-
       }
     },
 
     addtoCart(state, action) {
       const newItem = action.payload;
-if (newItem.selected === []) {
-  alert('Please Select A Feature')
-}
+      if (newItem.selected === []) {
+        alert("Please Select A Feature");
+      }
       //To check if Item is already available
       const existingItem = state.itemsList.find(
         (item) => item.name === newItem.name
       );
 
       if (existingItem) {
-             
         let newPrices = [];
         for (let i = 0; i < existingItem.prices.length; i++) {
-          const priceForEachCurrency =
-            ((existingItem.prices[i].amount) /(existingItem.quantity)).toFixed(2);
+          const priceForEachCurrency = (
+            existingItem.prices[i].amount / existingItem.quantity
+          ).toFixed(2);
           newPrices.push({
-            amount: JSON.parse(parseFloat(
-              parseFloat(existingItem.prices[i].amount) + parseFloat(priceForEachCurrency)
-            ).toFixed(2)),
+            amount: JSON.parse(
+              parseFloat(
+                parseFloat(existingItem.prices[i].amount) +
+                  parseFloat(priceForEachCurrency)
+              ).toFixed(2)
+            ),
             currency: {
               __typename: "Currency",
               label: existingItem.prices[i].currency.label,
@@ -117,7 +118,6 @@ if (newItem.selected === []) {
         existingItem.prices = newPrices;
         existingItem.totalPrice = newPrices;
         cartSlice.caseReducers.calcTotalPrice(state, state.itemsList);
-        
       } else {
         state.itemsList.push({
           id: newItem.id,
@@ -130,13 +130,12 @@ if (newItem.selected === []) {
         state.totalQuantity++;
         cartSlice.caseReducers.calcTotalPrice(state, state.itemsList);
       }
-      
-      const totalAction = state.itemsList;
-      
-      cartSlice.caseReducers.calcCartTotalAmount(state, totalAction);
-      
-      localStorage.setItem("Cart", JSON.stringify(totalAction));
 
+      const totalAction = state.itemsList;
+
+      cartSlice.caseReducers.calcCartTotalAmount(state, totalAction);
+
+      localStorage.setItem("Cart", JSON.stringify(totalAction));
     },
 
     removeFromCart(state, action) {
@@ -148,26 +147,28 @@ if (newItem.selected === []) {
       if (existingItem.quantity > 1) {
         let newPrices = [];
         for (let i = 0; i < existingItem.prices.length; i++) {
-          const priceForEachCurrency =
-          ((existingItem.prices[i].amount) /(existingItem.quantity)).toFixed(2);
-        newPrices.push({
-          amount: JSON.parse(parseFloat(
-            parseFloat(existingItem.prices[i].amount) - parseFloat(priceForEachCurrency)
-          ).toFixed(2)),
+          const priceForEachCurrency = (
+            existingItem.prices[i].amount / existingItem.quantity
+          ).toFixed(2);
+          newPrices.push({
+            amount: JSON.parse(
+              parseFloat(
+                parseFloat(existingItem.prices[i].amount) -
+                  parseFloat(priceForEachCurrency)
+              ).toFixed(2)
+            ),
             currency: {
               __typename: "Currency",
               label: existingItem.prices[i].currency.label,
               symbol: existingItem.prices[i].currency.symbol,
             },
           });
-        
         }
         existingItem.quantity--;
         existingItem.prices = newPrices;
         existingItem.totalPrice = newPrices;
         cartSlice.caseReducers.calcTotalPrice(state, action);
         cartSlice.caseReducers.calcCartTotalAmount(state, action);
-
       } else {
         const existingItem = state.itemsList.find(
           (item) => item.name === newItem.name
@@ -180,9 +181,17 @@ if (newItem.selected === []) {
         cartSlice.caseReducers.calcTotalPrice(state, action);
         cartSlice.caseReducers.calcCartTotalAmount(state, action);
       }
-    
+
       localStorage.setItem("Cart", JSON.stringify(state.itemsList));
     },
+
+    emptyCart(state, action) {
+      //  const newItem = action.payload;
+      state.itemsList = [];
+      state.totalQuantity = 0;
+      state.totalPrices = [];
+      state.totalCartPrice = [];
+    }
   },
 });
 
